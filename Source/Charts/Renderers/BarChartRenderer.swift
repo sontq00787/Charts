@@ -310,8 +310,14 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
             }
             
 //            context.fill(barRect)
+            var aliasRect = barRect
+            if aliasRect.origin.y < 26 {
+                aliasRect.origin.y = 26
+                aliasRect.size.height = aliasRect.size.height - (26 - barRect.origin.y)
+                debugPrint("Re draw bar chart height from:",barRect,"======>", aliasRect)
+            }
             
-            let bezierPath = UIBezierPath(roundedRect: barRect, cornerRadius: barRect.size.width / 2)
+            let bezierPath = UIBezierPath(roundedRect: aliasRect, cornerRadius: barRect.size.width / 2)
             context.addPath(bezierPath.cgPath)
             let circleWidth = barRect.width
             let circleCenter = CGPoint(x: barRect.midX, y: barRect.maxY - barRect.width / 2)
