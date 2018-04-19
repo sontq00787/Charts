@@ -16,6 +16,9 @@ import CoreGraphics
 @objc
 public protocol ILineChartDataSet: ILineRadarChartDataSet
 {
+    /// - Edit by SonTQ: 19/04/2018
+    var drawCircleByHighlightEnable: Bool { get set }
+    
     // MARK: - Data functions and accessors
     
     // MARK: - Styling functions and accessors

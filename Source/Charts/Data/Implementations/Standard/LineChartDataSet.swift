@@ -12,7 +12,6 @@
 import Foundation
 import CoreGraphics
 
-
 open class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
 {
     @objc(LineChartMode)
@@ -42,6 +41,8 @@ open class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
         initialize()
     }
     
+    public var drawCircleByHighlightEnable: Bool = false
+    
     // MARK: - Data functions and accessors
     
     // MARK: - Styling functions and accessors
@@ -57,7 +58,7 @@ open class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
     ///
     /// **default**: 0.2
     open var cubicIntensity: CGFloat
-    {
+        {
         get
         {
             return _cubicIntensity
@@ -75,7 +76,7 @@ open class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
             }
         }
     }
-        
+    
     /// The radius of the drawn circles.
     open var circleRadius = CGFloat(8.0)
     
@@ -148,7 +149,7 @@ open class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
     
     /// Sets a custom IFillFormatter to the chart that handles the position of the filled-line for each DataSet. Set this to null to use the default logic.
     open var fillFormatter: IFillFormatter?
-    {
+        {
         get
         {
             return _fillFormatter
